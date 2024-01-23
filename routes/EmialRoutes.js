@@ -3,7 +3,6 @@ const express = require('express');
 const route = express.Router();
 
 route.post('/send-mail', async (req, res) => {
-  console.log({ first });
   try {
     const { name, email, message } = req?.body;
     console.log({ name, email, message });
