@@ -7,7 +7,22 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use(cors());
+// app.use(cors());
+
+const developmentOrigin = ['http://localhost:3000', 'http://localhost:3001'];
+const productionOrigin = [
+  'https://portfolio-2u6f.vercel.app',
+  'portfolio-2u6f.vercel.app',
+];
+
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? productionOrigin
+        : developmentOrigin,
+  })
+);
 
 const emailRoutes = require('./routes/EmialRoutes');
 
