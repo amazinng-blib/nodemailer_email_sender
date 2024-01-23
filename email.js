@@ -29,8 +29,13 @@ const sendMessage = async (email, name, message) => {
             `,
     };
 
-    const emailSent = await transporter.sendMail(options);
-    console.log(emailSent);
+    transporter.sendMail(options, function (err, info) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(info);
+      }
+    });
   } catch (error) {
     console.log(error);
   }
