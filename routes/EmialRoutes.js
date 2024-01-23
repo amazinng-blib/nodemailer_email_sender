@@ -1,4 +1,5 @@
 const express = require('express');
+const sendMessage = require('../email');
 
 const route = express.Router();
 
